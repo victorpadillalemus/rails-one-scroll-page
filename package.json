@@ -1,5 +1,7 @@
 {
   "name": "rails-one-scroll-page",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
 }
