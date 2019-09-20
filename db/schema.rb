@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_19_223918) do
+ActiveRecord::Schema.define(version: 2019_09_20_053553) do
 
   create_table "academic_experiences", force: :cascade do |t|
     t.integer "user_id"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2019_09_19_223918) do
     t.index ["user_id"], name: "index_academic_experiences_on_user_id"
   end
 
+  create_table "achievements", force: :cascade do |t|
+    t.integer "business_experience_id"
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_experience_id"], name: "index_achievements_on_business_experience_id"
+  end
+
   create_table "awards", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -34,6 +43,27 @@ ActiveRecord::Schema.define(version: 2019_09_19_223918) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["academic_experience_id"], name: "index_awards_on_academic_experience_id"
+  end
+
+  create_table "business_experiences", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "company_name"
+    t.string "location"
+    t.string "logo_photo"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_business_experiences_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.integer "business_experience_id"
+    t.string "name"
+    t.integer "proficiency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_experience_id"], name: "index_skills_on_business_experience_id"
   end
 
   create_table "users", force: :cascade do |t|
