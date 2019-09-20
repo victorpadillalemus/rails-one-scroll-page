@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_191105) do
+ActiveRecord::Schema.define(version: 2019_09_19_223918) do
+
+  create_table "academic_experiences", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "bachelor"
+    t.string "study_field"
+    t.integer "GPA"
+    t.string "school_name"
+    t.string "location"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "star_date"
+    t.date "end_date"
+    t.index ["user_id"], name: "index_academic_experiences_on_user_id"
+  end
+
+  create_table "awards", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "academic_experience_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["academic_experience_id"], name: "index_awards_on_academic_experience_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
