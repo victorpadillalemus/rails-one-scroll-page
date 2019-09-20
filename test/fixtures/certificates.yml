@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  entity: MyString
+  certificate_number: 1
+  start_date: 2019-09-20
+  end_date: 2019-09-20
+
+two:
+  user: two
+  entity: MyString
+  certificate_number: 1
+  start_date: 2019-09-20
+  end_date: 2019-09-20
