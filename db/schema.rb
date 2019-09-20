@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_20_053553) do
+ActiveRecord::Schema.define(version: 2019_09_20_054837) do
 
   create_table "academic_experiences", force: :cascade do |t|
     t.integer "user_id"
@@ -55,6 +55,41 @@ ActiveRecord::Schema.define(version: 2019_09_20_053553) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_business_experiences_on_user_id"
+  end
+
+  create_table "certificates", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "entity"
+    t.integer "certificate_number"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_certificates_on_user_id"
+  end
+
+  create_table "extra_curriculars", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.text "summary"
+    t.string "logo_photo"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_extra_curriculars_on_user_id"
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.text "description"
+    t.string "link"
+    t.string "photo"
+    t.date "creation_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
   create_table "skills", force: :cascade do |t|
